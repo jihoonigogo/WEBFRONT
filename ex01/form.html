@@ -1,0 +1,49 @@
+<!DOCTYPE html> 
+<html lang="ko ">
+    <head>
+        <meta http-equiv="Content-Type" 
+        content="text/html;charset=UTF-8"/>
+    </head>
+
+    <body>
+        <h1>멤버십 가입</h1>
+
+        <!-- 서버로 데이터를 전송하기 위해서
+        사용자 입력을 받는 입력 태그가 필요하다 
+        이는 반드시 form태그로 포장되어야한다.-->
+
+        <!-- 
+            form 태그의 속성 :
+        method : 서버로 데이터 전송을 위한 전송방식 (post,get)
+        action : 폼 데이터를 처리할 서버 페이지의 주소
+        -->
+
+
+        <form method="POST" 
+            action="target.html">
+            <fieldset><!-- 입력양식 그룹화-->
+                <legend> 회원가입</legend><!-- 그룹의 제목-->
+                <!-- 입력 필드에 대한 설명 label의 userid는 input의 id를 받아옴-->
+                <label for="userid"> 아이디 </label> 
+                <!--입력type이 생략되면 default = text -->
+                <!-- 입력할 수 있는 상태 : focus-->
+                <!-- 입력 필드의 name 속성 : 서버로 전송 
+                 id 속성 : HTML 내에서 해당 요소를 식별하기 위해 사용-->
+                <input name="userid" id="userid"/><br/>
+                <label for ="password" >비밀번호</label> <!-- pw type: 숨김-->
+                <input type="password " name="password" id="password"/>
+                <!--입력 필드에 값을 부여할 때는 value 속성을 사용-->
+                <input type="hidden" name="code" value = "secret_code"/>
+                <label for ="recom">추천인</label>
+                <!-- disabled 속성이 있으면 해당 입력 상자는 사용 불가-->
+                <!--input type="text" name="recom" id="recom" value="홍길동" disabled =true/-->
+                 <input type="text" name="recom" id="recom" value="홍길동" disabled/>
+                 <br/>
+
+                 <label> 성별 </label>
+                 <input type="radio" name="gender" value="male" checked />남
+                 <input type="radio" name="gender" value="female" checked />여
+            </fieldset>
+        </form>
+    </body>
+</html>
