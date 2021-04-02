@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <title>Position Example</title>
+        <style>
+            .box{
+                width: 100px;
+                height: 100px;
+                /*  절대 좌표로 변경한다면.. left top right bottom  */
+                position: absolute;
+            }
+
+            .box:first-child{
+                background-color: red;
+                left: 10px;
+                top:10px
+            }
+            .box:nth-child(2){
+                background-color: green;
+                left:50px;
+                top: 50px;
+                z-index: 10; /*z축의 순서를 조정한다  이 값일 크면 보다 앞(처음)에보임 */
+            }
+            .box:last-child{
+                background-color: blue;
+                left: 90px;
+                top: 90px;
+            }
+            
+            .container{
+                margin-top: 50px ; 
+                border: 2px solid black;
+                position: relative;
+                height: 200px;
+                width: 200px;
+                overflow: hidden;
+                /* position: absolute;
+                left: 30px;
+                top: 30px; */
+
+                /* 자식의 좌표계를 absolute로 설정한다면 
+                부모의 좌표계를 relative로 설정하는 것이 좋다. */
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <!-- 기본적으로 html의 좌표계는 상대좌표이다.-->
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+        </div>
+    </body>
+</html>

@@ -8,7 +8,7 @@ h1 {
 
 nav, section{
 
-    margin : 10px 50px;
+    margin : 100px 100px;
 }
 
 /* ID 선택자 : html 요소의 id 속성을 이용해서 요소를 선택한다 #사용
@@ -22,18 +22,22 @@ nav, section{
     padding: 10px 10px;
 }
 .beverage.green {
-    background-color: lightgreen;
+    background-color: rgba(0,255,0,0.1);
+    /* background-color: #00ff0020; */
 
 }
 .beverage.blue{
-    background-color: lightblue;
+    background-color: rgba(0,0,255,0.1);
+    /* background-color: #0000ff20; */
 }
 .beverage.purple {
-    background-color: violet;
+    background-color: rgba(127,0,127,0.1);
+    background-color: #7f007f20;
 }
 
 .beverage.red{
-    background-color: lightcoral;
+    background-color: rgba(255,0,0,0.1);
+    background-color: #FF000020;
 }
 
 a:hover {/* 마우스가 요소 위에 올라갈 때 */
@@ -50,4 +54,7 @@ a:visited {
     /* 이미 방문했던 링크 */
     color:blue;
 }
+
+
+
 

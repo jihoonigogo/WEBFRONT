@@ -23,6 +23,8 @@
          /* background-color: #FF000022;  아래의 값과 같다.*/
          background-color: #F002;
         }
+        
+
         /* class가 beverage 요소의 자식 h2 */
         .beverage > h2{
           /*px = 화면에 표시되는 점 1개 
@@ -40,7 +42,61 @@
          }
          
          .feature{
+           /* test-decoration 은 선으로 요소를 꾸미는 속성이다  */
            text-decoration: underline;
+         }
+         .beverage{
+            /* border-width: 3px;
+            border-style: dashed; /* dashed 점선
+            border-color: gray; */
+
+            /* 일괄적용 : 두께 , 스타일 ,색상 순서 */
+            border : 3px dashed black;
+          
+         }
+
+         .beverage img {
+           /*모든 방향 적용*/
+           padding: 10px; 
+           
+
+         } 
+
+         .beverage>h2{
+           margin: 20px 10px 10px 10px;
+         }
+
+         .seller img{
+           /* width: 10px;
+           padding: 20px; */
+
+           border-radius: 20px; /*50%와 같이 비율단위로도 가능하다.*/
+           border-top-left-radius: 100px;
+           /* display 속성 : 공가 점유 방식을 변경 - > block inline */
+           /* display: none; */
+           /* visibility: hidden; */
+         }
+
+         .menu>li {
+           float: left;
+           width: 100px;
+           list-style-type: none;
+           height: 25px;
+           text-align: center;
+           margin-bottom: 10px;
+           margin-right: 5px;
+         }
+         .menu{
+           margin-bottom: 20px;
+         }
+
+         .beverage.green img, .beverage.purple img{
+           float: left;
+           margin: 10px;
+         }
+         .beverage.blue img, .beverage.red img{
+           float: right;
+           margin-left: 10px;
          }
       </style>
 </head>
@@ -52,10 +108,10 @@
 <nav><!-- 주로 메뉴등 사이트 네비게이션 관련 시맨틱태그-->
 <!--리스트를 활용한 메뉴-->
 <ul class="menu"><!-- ul은 순서없는 리스트이다-->
-  <li>Green</li>
-  <li>Blue</li>
-  <li>Purple</li>
-  <li>Red</li>
+  <li><a href="#Green">Green</a></li>
+  <li><a href="#blue">blue</a></li>
+  <li><a href="#purple">purple</a></li>
+  <li><a href="#red">red</a></li>
 </ul>
 </nav>
 
@@ -64,8 +120,8 @@
 
   <!-- 시맨틱 태그는 공간 점유태그 div의 일종이나 좀더 구체적인
   의미를 갖는 공간 점유 태그이다.-->
-  <div>
-    <img src="images/Penguins.jpg" alt="seller" >
+  <div class= "seller">
+    <img src="images/Penguins.jpg" alt="seller" > <br/>
   </div>
     
   

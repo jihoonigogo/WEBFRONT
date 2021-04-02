@@ -1,0 +1,14 @@
+body{
+    
+
+    background-image: url(../images/Landscape.jpg);
+    background-repeat: no-repeat;/* 반복되지 않는다 */
+    background-repeat: repeat-y; /*y축 방향으로만 반복한다 */
+    background-attachment: fixed; /* 배경화면고정 , 스크롤에 따른 변화없음*/
+    background-position: bottom;
+    background-size: 100%;
+
+   /* 축약형 이미지 (url())/ 사이즈 + 반복여부 + 부착방식 + 색상 */
+    background: url("../images/Landscape.jpg")/images/Landscape.jpg) bottom/ 100% no-repeat fixed lightgray;
+   
+}

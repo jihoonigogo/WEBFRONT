@@ -1,0 +1,67 @@
+@charset "UTH-8";
+*{
+    
+    margin: 0;
+    padding: 0;
+    /* border-width: 1px;
+    border-style:inset;
+    border-color: gray; */
+    
+
+
+}
+table{
+    margin-top: 10px;
+    
+    border-collapse: collapse;
+    
+    /* text-align: center; */
+    /* 질문1.  right-left 마진을 자동으로 적용해서 중앙에 오도록 ???? */
+    
+}
+/*  */
+body{
+    font-style: "맑은 고딕","돋움";
+    font-size: 12px;
+    color: #333;
+    
+    
+}
+.tbl-ex,th,td{
+    
+    border: 1px solid #333;
+}
+th,td{
+    padding: 8px;
+    border-left: 0;
+    border-right: 0;
+}
+th{
+    /* 질문2.보더의 굵기가 변하지 않음*/
+    border-top: 2px;
+    border-bottom: 2px; 
+    background-color: #999;
+    font-size: 1.1em;
+    color: #fff;
+  
+    border-bottom-style: solid;
+    
+}
+.tbl-ex{
+    border-left: 0px;
+    border-right: 0px;
+}
+td{
+    border-style: dotted;
+}
+
+a:hover{ 
+    /* 이걸 다른 태그들과 어떻게 연결하지 ?*/
+    background-color: #fc6;
+    
+}
+
+tr:nth-child(2n+1){
+    background-color:  #e8ecf6;
+}
+
