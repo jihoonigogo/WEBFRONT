@@ -3,6 +3,38 @@
     <head>
         <meta http-equiv="Content-Type" 
         content="text/html;charset=UTF-8"/>
+        <!-- 가급적 external 로 하자-->
+        <!-- 연습을 위해 pase css 로 하자-->
+        <style>
+            /* 속성 선택자 : 특정 속성의 유무, 속성의 특정값을 조건으로 요소 선택*/
+            /* type속성을 갖는 모든 요소 선택 */
+            *[type]{ 
+                background-color: beige;
+            }
+            input[type=text]{
+                background-color: lightgreen;
+            }
+            input[type=password]{
+                background-color: lightpink;
+            }
+
+            /*상태 선택자 : 입력 양식의 상태에 따른 요소 선택*/
+            /* enabled 는  입력 가능한 양식
+               disabled 는 속성이 없거나 
+               disabled = false 인 경우 */
+            input:enabled{
+                background-color: white;
+            }
+
+            input:disabled{
+                background-color:lightgray;
+            }
+            
+            /*focus : 입력양식에 초점이 맞춰진 상태 */
+            input:focus{
+                background-color: orange;
+            }
+        </style>
     </head>
 
     <body>
@@ -23,26 +55,50 @@
             action="target.html">
             <fieldset><!-- 입력양식 그룹화-->
                 <legend> 회원가입</legend><!-- 그룹의 제목-->
-                <!-- 입력 필드에 대한 설명 label의 userid는 input의 id를 받아옴-->
+                <!-- 입력 필드에 대한 설명 label의 for은 input의 id를 받아옴-->
                 <label for="userid"> 아이디 </label> 
                 <!--입력type이 생략되면 default = text -->
                 <!-- 입력할 수 있는 상태 : focus-->
                 <!-- 입력 필드의 name 속성 : 서버로 전송 
                  id 속성 : HTML 내에서 해당 요소를 식별하기 위해 사용-->
-                <input name="userid" id="userid"/><br/>
+                <input name="userid" id="userid" type="text"/><br/>
                 <label for ="password" >비밀번호</label> <!-- pw type: 숨김-->
-                <input type="password " name="password" id="password"/>
+                <input type="password" name="password" id="password"/>
                 <!--입력 필드에 값을 부여할 때는 value 속성을 사용-->
                 <input type="hidden" name="code" value = "secret_code"/>
                 <label for ="recom">추천인</label>
                 <!-- disabled 속성이 있으면 해당 입력 상자는 사용 불가-->
                 <!--input type="text" name="recom" id="recom" value="홍길동" disabled =true/-->
-                 <input type="text" name="recom" id="recom" value="홍길동" disabled/>
+                 <input type="text" name="recom" id="recom" value="홍길동" disabled />
                  <br/>
 
                  <label> 성별 </label>
+                 <!-- 같은 name을 가진 radio 중에서 한개만 선택-->
                  <input type="radio" name="gender" value="male" checked />남
                  <input type="radio" name="gender" value="female" checked />여
+                 <br/>
+
+                 <label>선호음료</label> 
+                 <!-- 같은 name을 가진 checkbok 중에서 중복 선택
+                중요 : String 배열로 전송된다.-->
+                 <input type="checkbox" name="favorite" value="americano" > 아메리카노
+                 <input type="checkbox" name="favorite" value="latte" > 라뗴
+                 <input type="checkbox" name="favorite" value="ade" > 에이드
+                 <input type="checkbox" name="favorite" value="tea" > 녹차/홍차
+
+                <label for="telecom">통신사</label> 
+                <!-- 서버로 선택된 Option의 value가 전송된다.-->
+                <select name="telecom" id ="telecom"> 
+                    <!--서브태그-->
+                    <option value="S">SKT</option>
+                    <option value="T">KT</option>
+                    <option value="L">LGT</option>
+                    <option value="E">기타</option>
+                </select><br/>
+
+                <input type="submit" value="멤바십 가입" /><!-- 현재 폼을 서버로 전송한다.-->
+                <input type="reset" value="다시 작성하기" /> <!--do reset this form-->
+
             </fieldset>
         </form>
     </body>

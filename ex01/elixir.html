@@ -5,6 +5,44 @@
   <title>Bit Lounge 건강음료</title>
   <meta http-equiv="Content-Type" 
       content="text/html; charset=UTF-8">
+      <link rel="stylesheet" href="./styles/style.css">
+      <!-- 연습을 위해 page css로 진행-->
+      <style>
+        /* 구조 선택자 : 형제 관계에서의 위치로 요소 선택  */
+        .menu > li:first-child{/* 색상 값은 키워드로 작성할 수 있다 */
+        /* background-color: lightgreen;*/
+        background-color: rgba(0,127,0,0.1);
+        }
+        .menu>li:nth-child(2){
+          background-color: #0000FF20; /*16진수 방식 */
+        }
+        .menu>li:nth-last-child(2){
+          background-color: RGBA(127,0,127,0.1)  ;
+        }
+        .menu>li:last-child{
+         /* background-color: #FF000022;  아래의 값과 같다.*/
+         background-color: #F002;
+        }
+        /* class가 beverage 요소의 자식 h2 */
+        .beverage > h2{
+          /*px = 화면에 표시되는 점 1개 
+           브라우저 기본 폰트사이즈 16px*/
+          font-size: 36px;
+          font-weight: bold;
+         }
+         .beverage> p{ /*h2 > p가아니다*/
+           font-size: 32px;
+           font-weight: 400; 
+         }
+
+         body{/* 표시할 글꼴의 후보군을 나열하여 앞쪽 폰트부터 적용 가능여부에 따라 넘어감*/
+           font-family: 'Courier New', courier,sans-serif;
+         }
+         
+         .feature{
+           text-decoration: underline;
+         }
+      </style>
 </head>
 <body>
 <header> <!-- 사이트 전체 혹은 기사의 헤더 정보-->
@@ -13,7 +51,7 @@
 
 <nav><!-- 주로 메뉴등 사이트 네비게이션 관련 시맨틱태그-->
 <!--리스트를 활용한 메뉴-->
-<ul><!-- ul은 순서없는 리스트이다-->
+<ul class="menu"><!-- ul은 순서없는 리스트이다-->
   <li>Green</li>
   <li>Blue</li>
   <li>Purple</li>
@@ -22,50 +60,69 @@
 </nav>
 
 
-<article><!-- article : 실제 컨텐츠를 표시하는 시멘택 태그-->
+<article><!-- article : 실제 컨텐츠를 표시하는 시멘틱 태그-->
 
   <!-- 시맨틱 태그는 공간 점유태그 div의 일종이나 좀더 구체적인
   의미를 갖는 공간 점유 태그이다.-->
   <div>
     <img src="images/Penguins.jpg" alt="seller" >
   </div>
-
-    <section>
-      <h2> Green Tea Cooler</h2>
-      <img src="images/green.jpg"  alt ="Green Tea Cooler" >
-      <p>
-        Chock full of vitamins and minerals, <br/>
-        this elixir combines the healthful benefits of green tea with <br/>
-        a twist of chamomile blossoms and ginger root. <br/>
-      </p>
-    </section>
+    
   
-    <section>
-      <h2> Raspberry Ice Concentration</h2>
-      <img src="images/lightblue.jpg"  alt ="Raspberry Ice Concentration">
-      <p>
-        Combining raspberry juice with lemon grass, citrus peel and rosehips,<br/> 
-        this icy drink will make your mind feel clear and crisp.<br/>
-      </p>
+  <!--id 속성 : html 내에서 사용되는 유일 식별자 #을 붙여 사용-->
+    <section id="Green">
+      <!-- 클래스는 여러 요소를 가질 수 있고 한 요소가 여러 클래스 갖기 가능-->
+      <div class="beverage green ">
+          <h2> Green Tea Cooler</h2>
+          <img src="images/green.jpg"  alt ="Green Tea Cooler" >
+          <p>
+            Chock full of <span class="feature"> vitamins and minerals</span>, <br/>
+            this elixir combines the healthful benefits of green tea with <br/>
+            a twist of chamomile blossoms and ginger root. <br/>
+          </p>
+          
+      </div>
     </section>
-
-
-    <section>
-      <h2> Blueberry Bliss Elixir</h2>
-      <img src="images/blue.jpg "  alt ="Blueberry Bliss Elixir">
-      <p>
-        Blueberries and cherry essence mixed into a base of elderflower herb tea<br/>
-        will put you in a relaxed state of bliss in no time.
+    <div>
+      <aside>세로본능</aside>
+    </div>
+    <div>
+      <section>
+        인섹션
+      </section>
+    </div>
+    <section id="blue">
+      <div class = "beverage blue ">
+        <h2> Raspberry Ice Concentration</h2>
+        <img src="images/lightblue.jpg"  alt ="Raspberry Ice Concentration">
+        <p>
+          Combining raspberry juice with lemon grass, citrus peel and rosehips,<br/> 
+          this icy drink will make your mind feel clear and crisp.<br/>
         </p>
+      </div>
     </section>
 
-    <section >
-      <h2>Cranberry Antioxidant Blast</h2>
-      <img src="images/red.jpg"  alt ="Cranberry Antioxidant Blast">
-      <p>
-        Wake up to the flavors of cranberry and <br/>
-        hibiscus in this vitamin C rich elixir.
-      </p>
+
+    <section id="purple">
+      <div class= "beverage purple "> 
+          <h2> Blueberry Bliss Elixir</h2>
+          <img src="images/blue.jpg "  alt ="Blueberry Bliss Elixir">
+          <p>
+            Blueberries and cherry essence mixed into a base of elderflower herb tea<br/>
+            will put you in a relaxed state of bliss in no time.
+            </p>
+      </div>
+    </section>
+
+    <section id="red" >
+      <div class="beverage red ">
+          <h2>Cranberry Antioxidant Blast</h2>
+          <img src="images/red.jpg"  alt ="Cranberry Antioxidant Blast">
+          <p>
+            Wake up to the flavors of cranberry and <br/>
+            hibiscus in this vitamin C rich elixir.
+          </p>
+        </div>
     </section>
 </article>
 
