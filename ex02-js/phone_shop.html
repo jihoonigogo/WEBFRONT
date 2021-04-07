@@ -31,7 +31,8 @@
 
 <body>
     <div id="product-info">
-        <img id="main-image" src="images/iphone-xs.jpeg" class="selected" title="iPhones XS">
+        <img id="main-image" src="images/iphone-xs.jpeg" 
+        class="selected" title="iPhones XS">
         <!-- 인라인 방식으로 스크립트 실행해보기-->
         <!-- <img  1번 방식
         id="main-image" 
@@ -47,10 +48,16 @@
             anim id est laborum.</p>
         <h3>Products</h3>
         <ul id="product-list">
-            <li><img class="sub-image" src="images/iphone-xs.jpeg" title="iPhone XS"></li>
-            <li><img class="sub-image" src="images/iphone-xr.jpeg" title="iPhone XR"></li>
-            <li><img class="sub-image" src="images/iphone8.jpeg" title="iPhone 8"></li>
-            <li><img class="sub-image" src="images/ipad-mini.jpeg" title="iPad Mini"></li>
+            <li><img class="sub-image" 
+                src="images/iphone-xs.jpeg" 
+                title="iPhone XS"
+                data-color="red"></li>
+            <li><img class="sub-image" src="images/iphone-xr.jpeg" title="iPhone XR"
+                data-color="green"></li>
+            <li><img class="sub-image" src="images/iphone8.jpeg" title="iPhone 8"
+                data-color="blue"></li>
+            <li><img class="sub-image" src="images/ipad-mini.jpeg" title="iPad Mini"
+                data-color="purple"></li>
         </ul>
         <input type="text" id="keyword" /><button id="btn-search">검색</button>
     </div>
@@ -112,6 +119,34 @@
           });
            
     });
+
+    var products = document.getElementsByClassName("sub-image");
+    console.log(products);
+    for(var i=0; i<products.length;i++){
+        //개별 상품 할당 받기 
+        var product = products[i];
+        console.log(product);
+        product.addEventListener("click",function(event){
+             //개별 상품을 클릭했을 때 개별상품의 소스속성과 
+             //타이틀 속성을 메인img#main-image에 옮겨야함
+             var mainImage = document.getElementById("main-image");
+             //이벤트 발생시킨 객체 확인 
+             var obj = event.target; // 클릭된 서브 이미지 
+             mainImage.setAttribute("src",obj.getAttribute("src"));
+             mainImage.setAttribute("title",obj.getAttribute("title"));
+
+
+             var title = document.querySelector("#product-info h2"); // 이해안감3교시
+             title.innerText = obj.getAttribute("title");
+
+             //요소의 스타일에 접근하고자 한다면 style 속성 이용 
+             //css 의 명명방식은 snake case 이다 . ex) background-color
+             //js로 스타일을 부여할때는 camelCase로. backgroundColor
+             title.style.color = obj.getAttribute("data-color");
+        })
+    }
+
+    
 </script>
 
 </html>
