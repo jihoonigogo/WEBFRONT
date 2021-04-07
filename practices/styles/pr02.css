@@ -1,0 +1,22 @@
+@charset "UTF-8";
+*{
+    margin: 0;
+    padding: 0; 
+}
+body{
+    font-style: "맑은 고딕","돋움";
+    font-size: 0.75em;
+    color:#333;
+}
+li{
+    line-height: 1.8em;
+    padding-left: 15px;
+    background-image: url("../images/bullet11.jpg") ;
+    /* 이미지는 서버상에 있으므로 url로 불러야한다. src와 무슨 차이일까  */
+    background-repeat: no-repeat;
+    background-position-x: 0.8px;
+}
+ul{
+    margin-left: 20px;
+    list-style: none;
+}

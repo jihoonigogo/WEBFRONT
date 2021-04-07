@@ -1,0 +1,55 @@
+@charset "UTF-8";
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: "맑은 고딕", 돋움,sans-serif;
+    font-size: 12px;
+    color: #333;
+}
+table{margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+   
+}
+.tbl-ex,th,td{
+    border: 1px solid #333;
+}
+.tbl-ex{
+    
+    border-left: 0;
+    border-right: 0;
+    border-collapse: collapse;
+}
+th,td{
+    padding: 8px;
+    border-left: 0;
+    border-right: 0;
+
+}
+th{
+    background-color: #999;
+    font-size: 1.1em;
+    color: #fff;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+
+    /* th 보더 굵기가 안된다 ? */
+}
+
+td{
+    border-style: dotted;
+}
+
+tr:nth-child(2n+1){
+    background-color: lightgray;
+}
+tr:hover{
+    background-color: #fc6;
+}
+*{
+    cursor: pointer;
+}

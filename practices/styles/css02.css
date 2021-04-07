@@ -17,7 +17,6 @@ li{
     /* <img src="/practices/images/bullet11.jpg"> */
 /* 축약형 이미지 (url())/ 사이즈 + 반복여부 + 부착방식 + 색상 */
     
-background: url("./images/bullet11.jpg")/images/bullet11.jpg) bottom/ 100% no-repeat fixed lightgray;
 }
 ul{
     margin-left: 20px;

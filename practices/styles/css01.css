@@ -12,11 +12,11 @@
 }
 table{
     margin-top: 10px;
-    
+     /* 질문1.  right-left 마진을 자동으로 적용해서 중앙에 오도록 ???? */
     border-collapse: collapse;
     
     /* text-align: center; */
-    /* 질문1.  right-left 마진을 자동으로 적용해서 중앙에 오도록 ???? */
+   
     
 }
 /*  */
@@ -31,7 +31,8 @@ body{
     
     border: 1px solid #333;
 }
-th,td{
+th,td{ 
+    /*  그룹 선택자로 속성을 부여한다는게 내가 한게 맞는가 ? */
     padding: 8px;
     border-left: 0;
     border-right: 0;
@@ -47,10 +48,7 @@ th{
     border-bottom-style: solid;
     
 }
-.tbl-ex{
-    border-left: 0px;
-    border-right: 0px;
-}
+
 td{
     border-style: dotted;
 }

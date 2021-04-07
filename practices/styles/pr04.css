@@ -1,0 +1,26 @@
+@charset "utf-8";
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    font-style: "맑은 고딕", "돋움";
+    font-size: 12px;
+    color: #333;
+    
+}
+label{display: block;
+margin-top: 5px;
+margin-bottom: 3px;}
+input[type=image]{
+    display: block;
+    margin-top: 10px;
+}
+input:hover[name=password]{
+    background-color: greenyellow;
+}
+input:hover[name=userid]{
+    background-color: greenyellow;
+}
+/* label은 원래 inline 태그임 */

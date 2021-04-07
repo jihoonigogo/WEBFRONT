@@ -50,7 +50,7 @@ a:link {/* 미 방문 상태의 링크 */
  color:cyan;
 }
 
-a:visited {
+a:virited {
     /* 이미 방문했던 링크 */
     color:blue;
 }
