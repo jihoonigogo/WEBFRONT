@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax Example</title>
+</head>
+<!-- JQuery-->
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+<body>
+    <button id="btnCallSnippet">HTML 조각불러오기</button>
+    <button id="btnCallMovies">영화목록불러오기</button><!--api call-->
+    
+    <!--결과출력영역-->
+    <div id="info"><!--btncallsnippet 버튼을 누르면 snippet페이지조각받아서 반영-->
+    
+    </div>
+
+    <!--btncallMovies 버튼을 누르면 api서버에 데이터를 요청, 결과를 반영-->
+    <table id="list" border="1" width="640">
+
+    </table>
+
+    <script>
+       // document 초기화
+       $(document).ready(function(event){
+           //btncallsnippet 버튼에 클릭이벤트 부착
+         $("#btnCallSnippet").on("click",function(event){
+             console.log("btnCallSnippet click");
+
+             //비동기 통신 
+             $.ajax({             
+                //  url:"snippet.html", //첫번째옵션 호출할 페이지
+                url: "notfound.html",
+                 type: "GET" ,//메서드
+                //  data : //서버에 요청할 데이터
+                dataType: "text", //전송받을 데이터의 타입
+               
+               //요청에 성공했을때 실행될 콜백함수 (200)
+                success : function(response){ //첫번째 인자값 => 서버로부터 전달받은 데이터 
+                    console.log(response); // ui에 반여앟ㄴ다 
+                    $("#info").html(response);
+                },
+                error  :function  (response,  //서버에 요청한 정보
+                    status, // 응답 상태 
+                    error){ // 에러정보 객체
+                        console.error("request :",request);
+                        console.error("status:",status);
+                        console.error("error :",error);
+                }
+
+             })
+         })
+       })
+    </script>
+</body>
+</html>
