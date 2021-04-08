@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>iPhones</title>
+    <style>
+        #product-info img.selected {
+            width: 225px;
+            height: 265px;
+            float: left;
+            border: 1px solid lightslategrey;
+            margin: 5px;
+        }
+
+        #product-list li {
+            list-style-type: none;
+            border: 1px solid lightslategrey;
+            margin: 5px;
+            float: left;
+        }
+
+        #product-list li img {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+    <!-- jQuery Script 불러오기 -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js" 
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" 
+        crossorigin="anonymous"></script>
+</script>
+    
+</head>
+
+<body>
+    <div id="product-info">
+        <img id="main-image" src="images/iphone-xs.jpeg" 
+        class="selected" title="iPhones XS">
+        <!-- 인라인 방식으로 스크립트 실행해보기-->
+        <!-- <img  1번 방식
+        id="main-image" 
+        src="images/iphone-xs.jpeg" 
+        class="selected" 
+        title="iPhones XS"
+        onclick="alert(this.title);">
+        <h2>iPhone Xs</h2> -->
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+            magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+            commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+            anim id est laborum.</p>
+        <h3>Products</h3>
+        <ul id="product-list">
+            <li><img class="sub-image" 
+                src="images/iphone-xs.jpeg" 
+                title="iPhone XS"
+                data-color="red"></li>
+            <li><img class="sub-image" src="images/iphone-xr.jpeg" title="iPhone XR"
+                data-color="green"></li>
+            <li><img class="sub-image" src="images/iphone8.jpeg" title="iPhone 8"
+                data-color="blue"></li>
+            <li><img class="sub-image" src="images/ipad-mini.jpeg" title="iPad Mini"
+                data-color="purple"></li>
+        </ul>
+        <input type="text" id="keyword" /><button id="btn-search">검색</button>
+    </div>
+</body>
+<script>
+    function testAttributeJq(){ 
+        // 1. id가 main-image, 어떤 속성들이 있는지 확인 
+        // var obj = document.getElementById("main-image");
+        // vjs 로 선택하면 html엘레멘트 or 컬렉션
+        // jquery로 선택하면 jquery로 객체로포장된다.
+        var obj = $("#main-image");
+        console.log("#main-image:", obj);
+
+        //만약에 jquery 포장 내 실제 element 속성을 사용하고자 한다면 
+        //포장에서 끄집어내야한다.
+        //선택한 요소의 모든 속성명 반환
+        console.log(obj[0].getAttributeNames());
+        
+        // 속성 조회 ( title)
+        // .attr("속성명") :getter , .attr(속성명,값) :setter
+        console.log("title속성(jq):", obj.attr("title"));
+        // console.log("title 속성 :", obj.getAttribute("title"))
+    }
+    testAttributeJq();
+
+
+    function testAttribute2(){
+        var subs = $(".sub-image");
+        console.log(".sub-image :",subs);
+        //HTML컬렉션이므로 루프로 끄집어내야함.
+        //직접 접근은 불가함 왜 ?
+        
+        //Jquery 객체에서 내부요소를 접근하면 -> jQuery가 아니다.
+        //즉 dom객체에서 이를 사용하기 위해서 obj를 붙여서 사용해야한다 ? 
+        
+
+        for(var i =0; i<subs.length;i++){
+            var sub= $(subs[i]);// jq 객체로 포장하면 jq 메서드 사용간ㅇ.
+            console.log("sub title 속성 :", sub.attr("title"));
+        }
+    }
+        testAttribute2();
+        // 이벤트 리스너를 부착하는 두번째 방법 
+        // //JQ에 이벤트 리스너 부착하는 방법 :ON메서드  .on(이벤트명,리스너함수)
+        // document.getElementById("main-image")
+        // .onclick = function(event){
+            $("#main-iamge").on("click",function(event){
+                console.log(event);
+            console.log("이벤트 명", event.__proto__);
+            console.log("이벤트 발생 객체", event.target);
+            console.log("이벤트 발생 객체 :", this);//this는 jq이벤트를 발생시킨 객체
+                
+            });
+        //     //첫번째 인자값 ?
+        //     console.log(event);
+        //     console.log("이벤트 명", event.__proto__);
+        //     console.log("이벤트 발생 객체", event.target);
+        //     //event.target으로 이벤트를 발생시킨 객체를 찾을 수 있다.
+        //     alert
+        // };
+
+        // // 두번째 방법인데 다시 보기;; 
+        // //input#keyword 에 내용을 입력하면 변경된 내용을 btn-search에  출력해보자 ?
+        // document.getElementById("keyword").onkeypress= // 변경되었을떄
+        // function(event) { //1.이벤트 발생시킨 객체 확인 }
+        // console.log("이벤트 발생 객체 :", event.target);
+        // console.log("눌러진 키 : ", event.keyCode); // ?
+        // var btn =document.querySelector("#btn-search");
+        // btn.innerText = event.target.value + ": 검색 "
+        //   };
+
+
+    // 가장 추천하는 방법 3번째
+    // jq 초기화를 위해서 document가 완료된 상태에서 진행해야함 .= window.load 상태
+    // jq에서는 document.ready 상태임을 확인해주고 작동하는것이 좋다.
+
+    $(document).ready(function(){
+        // document.getElementById("keyword") 
+        $("#keyword")
+            .on("keyup",function(event){
+                console.log("이벤트 발생 객체 :", event.target);
+        console.log("눌러진 키 : ", event.keyCode); // ?
+        // var btn =document.querySelector("#btn-search");
+        var btn = $("#btn-search"); //쿼리셀렉트 수행?
+        btn.text(this.value + ": "); // 확인해보기 text의 기능또한 확인 ,innertext속성임
+        // btn.innerText = event.target.value + ": 검색 "
+          });
+           
+    });
+    // window.addEventListener("load", function(event){
+    //     document.getElementById("keyword")
+    //         .addEventListener("keyup",function(event){
+    //             console.log("이벤트 발생 객체 :", event.target);
+    //     console.log("눌러진 키 : ", event.keyCode); // ?
+    //     var btn =document.querySelector("#btn-search");
+    //     btn.innerText = event.target.value + ": 검색 "
+    //       });
+           
+    // });
+
+    var products = $(".sub-image");
+    //jq는 검색된 요소가 복수개여도 loop 하지 않아도 괜찮다
+    console.log(products);
+    // for(var i=0; i<products.length;i++){
+    //     //개별 상품 할당 받기 
+    //     var product = products[i];
+    //     console.log(product);
+        // product.addEventListener("click",function(event){
+            products.on("click",function(event){
+
+            //1.메인이미지 가ㅕ오기 
+            var mainImage = $("#main-image");
+             //개별 상품을 클릭했을 때 개별상품의 소스속성과 
+             //타이틀 속성을 메인img#main-image에 옮겨야함
+            //  var mainImage = document.getElementById("main-image");
+             //이벤트 발생시킨 객체 확인 
+             var obj = $(this); // 클릭된 서브 이미지 
+            //  mainImage.setAttribute("src",obj.getAttribute("src"));
+            //  mainImage.setAttribute("title",obj.getAttribute("title"));
+                mainImage.attr("src",obj.attr("src"));
+                mainImage.attr("title",obj.attr("title"));
+
+
+                $("#product-info h2").text(obj.attr("title"));
+            //  var title = document.querySelector("#product-info h2"); // 이해안감3교시
+            //  title.innerText = obj.getAttribute("title");
+
+             //요소의 스타일에 접근하고자 한다면 style 속성 이용 
+             //css 의 명명방식은 snake case 이다 . ex) background-color
+             //js로 스타일을 부여할때는 camelCase로. backgroundColor
+            //  title.style.color = obj.getAttribute("data-color");
+            $("#product-info h2").css("color",obj.data("color"));
+            //속성 중에서  data-접두사가 붙은 속성은 사용자 정의 속성으로 .data 메서드로 접근가능하다.
+        });
+    
+
+    
+</script>
+
+</html>

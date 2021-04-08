@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+        <title>JS Cart</title>
+        <style>
+            #list li {
+                height: 30px;
+            }
+        </style>
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+        
+    </head>
+    <body>
+        <div id="header">
+            <h1>Shopping List</h1>
+        </div>
+        <div id="cart-list">
+            <ul id="list">
+                <li>무</li>
+                <li>배추</li>
+                <li>쪽파</li>
+                <li>고춧가루</li>
+            </ul>
+        </div>
+        <div id="cart-input">
+            <input id="item"><button id="btn-add">추가</button>
+        </div>
+        <div id="footer">
+            &copy;Bit Academy
+        </div>
+    </body>
+    <script>
+        //이벤트 처리함수  #btn-add 처리기  4.7 3교시
+        function addItem(event) {
+            //1.추가할 내용 찾기  intput#item에서 찾아온다
+            // var itemInput = document.getElementById("item");
+            var itemInput =$("#item"); 
+            // var item = itemInput.value.trim(); 
+            var item = itemInput.val().trim();// val 속성
+            console.log("추가할 아이템 : ", item);
+
+            if(item.length >0){
+                //부모 요소 선택
+                // var container = document.getElementById("list");
+                var container =$("#list");
+                
+                //새 노드 만들기 -?$(ㅗhtmlstring) 
+                // var itemNode = document.createElement("li");
+                var itemNode =$("<li>");
+                
+                //내부 속성과 콘텐츠 설정 
+                // itemNode.innerText = item;
+                itemNode.text(item);
+
+                //노드 내부에 삭제 버튼 
+                // var toolbar = document.createElement("div");
+                var toolbar= $("<div>");
+                // toolbar.style.display = "inline";
+                toolbar.css("display","inline");
+
+                // var delbtn = document.createElement("button");
+                var delbtn =$("<button>");
+
+                // delbtn.innerText = "삭제하기";
+                // delbtn.style.float = "right";
+                delbtn.text("삭제")
+                            .css("float","right"); //메서드 체이닝
+            
+
+                // toolbar.appendChild(delbtn);
+                toolbar.append(delbtn);
+                // itemNode.appendChild(toolbar);
+                itemNode.append(toolbar);
+
+                //삭제 버튼에 리스너 부착
+                // delbtn.addEventListener("click",function(event){
+                    delbtn.on("click",function(event){
+                    console.log(event.target);
+                    //삭제할 요소
+                // var removeItem = event.target.parentNode.parentNode;
+                   var removeItem= $(this.parentNode.parent);
+                //삭제할 요소의 부모 
+                // var parent = removeItem.parentNode;
+
+                //부모로부터 분리
+                // parent.removeChild(removeItem);
+                removeItem.remove();
+                    
+                });
+                // //앞에 삽입 하고자 할때
+                // //1. 자식이 없을때 append()
+
+                // if(container.hasChildNodes()&& container.children.length>0){
+                //     //삽입 가능
+                //     //부모확인 -새 노드 - 삽입할 위치 
+                //     document.insertBefore(itemNode,container.children[0])
+
+                // }else{
+                // // itemnode를 추가
+                // if(container.appendChild(itemNode));
+                // };
+
+
+
+
+
+                //itemNode를 부모에 추가
+                // container.appendChild(itemNode);
+                container.append(itemNode);
+                //input#item 초기화
+                // itemInput.value=""; 
+                itemInput.val("");
+                itemInput.focus();
+
+
+
+            }
+        }
+        //초기화 : load 이벤트 처리      
+        // window.addEventListener("load",function(event){
+            $(document).ready(function(event){
+                 //시작할때 list를 모두 비우기 
+            // var cartItem =document.querySelectorAll("#list>li");
+            var cartItem = $("#list>li");
+            
+            //vjs 루프
+            // for(var i=0;i<cartItem.length;i++){
+            //     //분리
+            //     cartItem[i].parentNode.removeChild(cartItem[i]);
+            // }
+
+            //jq 루프
+            cartItem.each(function(index,item){ //jq 요소 루프돌리기 
+            //vjs의 경우 요소의 부모를찾고 , 자기자신을 찾고 ,부모로부터 분리                    //jq는 부모를 찾지 않아도 된다 
+            item.remove();
+             });
+
+            // //추가 버튼 #btn-add 에 클릭 이벤트 부착 vjs
+            // document.getElementById("btn-add")
+            // .addEventListener("click",addItem);
+            $("btn-add").on("click",addItem);
+        });
+
+
+
+
+    </script>
+</html>
