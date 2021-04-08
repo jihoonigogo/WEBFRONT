@@ -14,19 +14,22 @@
     <h1>Form Component!</h1>
     <!-- data-toggle  :modal을 토글한다(껏다켯다)
          date-target 속성: 버튼을 눌렀을때 반응할 요소-->
-    <button class="btn btn-primary"
+           <button class="btn btn-primary"
             data-toggle="modal"
-            data-target="#exampleDialog">대화상자</button>
+            data-target="#exampleDialog">대화상자
+           </button>
 
-      <button class= "btn btn-secondary"
-          data-toggle="modal"
-          data-target="#loginDialog"> login</button>
+           <button class= "btn btn-secondary"
+            data-toggle="modal"
+            data-target="#loginDialog"> login
+           </button>
 
      <!-- 폼 컨포넌트 사용 대화상자 --> 
      <div class="modal"
           tabindex="-1"
           role="dialog"
           id="loginDialog">
+
         <div class="modal-dialog"     role = "document">
           <div class="modal-content">
             <div class="modal-header">
@@ -44,24 +47,24 @@
                   <div class="form-group col-md-6"> 
                     <label for="email">이메일</label>
                     <input type="email" class="form-control" id="email">
-
                   </div> 
+
                   <div class="form-group col-md-6">
                     <label for="password">비밀번호</label>
                     <input type="password" class="form-control" id="password">
-
                   </div>
+                  
                 </div>
               </form>
             </div>
+
             <div class="modal-footer">
               <button class="btn btn-secondary" data-dismiss="modal">닫기</button>
               <button class="btn btn-primary"> 로그인 </button>
             </div>
           </div>
-
         </div>
-        </div>
+      </div>
 
 
      <div class="modal"
@@ -80,7 +83,7 @@
                 </button>
               </div>
               <div class="modal-body" >
-                <p>modal dialog desuyo</p>
+                <p>modal dialog 입니다 ^^</p>
               </div> 
               <div class="modal-footer">
                 <button class="btn btn-secondary " data-dismiss="modal"> 닫기</button>

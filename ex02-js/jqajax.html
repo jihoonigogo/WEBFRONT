@@ -32,8 +32,8 @@
 
              //비동기 통신 
              $.ajax({             
-                //  url:"snippet.html", //첫번째옵션 호출할 페이지
-                url: "notfound.html",
+                 url:"snippet.html", //첫번째옵션 호출할 페이지
+                // url: "notfound.html",
                  type: "GET" ,//메서드
                 //  data : //서버에 요청할 데이터
                 dataType: "text", //전송받을 데이터의 타입
@@ -43,9 +43,11 @@
                     console.log(response); // ui에 반여앟ㄴ다 
                     $("#info").html(response);
                 },
-                error  :function  (response,  //서버에 요청한 정보
+                error: function(response,  //서버에 요청한 정보
                     status, // 응답 상태 
                     error){ // 에러정보 객체
+
+                        //요청이 실패했을때 실행될 콜백함수
                         console.error("request :",request);
                         console.error("status:",status);
                         console.error("error :",error);
