@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!-- Vue.js -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- axios -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>Movie App</title>
+</head>
+<style>
+    .movie{
+        min-height: 100px;
+        padding: 10px;
+
+    }
+    .movie img {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        float: left;
+        margin: 10px;
+    }
+    .movie h2 {
+        font-size: 1.2em;
+
+    }
+    .move p{
+        font-size: 0.9em;
+    }
+    .movie:nth-child(2n){
+        background-color: rgba(127, 127, 127, 0.1);
+    }
+    .movie:nth-child(2n+1){
+        background-color: rgba(0, 0, 127, 0.1);
+    }
+</style>
+<body>
+    <h1>pixar Movies</h1>
+    <div id="app">
+        <div class="movie" v-for="movie in movies">
+            <img :src="'http://localhost:3000/images/' + movie.image" >
+            <h2>{{movie.title}}</h2>
+            <p>{{movie.director}}</p>
+            <p>{{movie.year}}</p>
+        </div>
+    </div>
+<script>
+ var movies = [];
+//  axios.get("http://localhost:3000/movies")
+//     .then(Response => {
+//         console.log(Response);
+//         movies = Response.data.movies;
+//     })
+//     .catch(error =>{
+//         console.error(error);
+//     });
+    var app = new Vue({
+        el:"#app",
+        data:{
+            movies:[] //모델
+
+        },
+        created: function(){
+            console.log("load movies from api server");
+            var instance = this;
+    axios.get("http://localhost:3000/movies")
+    .then(Response => {
+        // console.log(Response);
+        console.log(movies);
+        this.movies = Response.data.movies;
+    })
+    .catch(error =>{
+        console.error(error);
+    });
+        }
+    });
+</script>
+</body>
+</html>

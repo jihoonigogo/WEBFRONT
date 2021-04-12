@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue.js Example
+       </title>
+       <!--vue js-->
+       <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+       <!-- style-->
+       <style>
+           #app {
+               border: 1px dashed red;
+           }
+       </style>
+</head>
+<body>
+         <h1>hello vue</h1>
+
+         <div id="app">
+             {{message}}
+         </div>
+         <script>
+             //vjs 
+            //  document.getElementById("app").innerText="hello vanilla javascript";
+         </script>
+
+         <!-- vue 인스턴트 객체 생성
+        MVVM퍁네서 MODEL과 VIEW를 연결하는 VM의 역할을 수행한다.-->
+        <script>
+            var app = new Vue({
+                el:"#app", // view 로 사용할 DOM (반드시 HTML 엘리먼트 여야한다. id로 셀렉트하자)
+                data:{  //model(데이터)}
+                message : "Hello Vue.js"
+            },
+            beforeCreate : function(){
+                console.log("beforeCreate"); //객체 생성 전
+            },
+            created: function(){
+                console.log("created"); //viewmodel 생성, view연결x 데이터 x
+            },
+            mounted: function(){
+                console.log("mounted");//view가 연결디어서 dom에 접근가능상태 
+            },
+            updated: function(){
+                console.log("updated");
+            }
+            //실행의 단계마다 이벤트 발생 -> 각 단계별로 hook 함수가 연결된다.
+        });
+        </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My cart</title>
+    <!--vue js-->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <cart-header></cart-header>
+        <shop-list></shop-list>
+        <cart-input></cart-input>
+        <bought-list></bought-list>
+        <cart-footer></cart-footer>
+    </div>
+    <script>
+    //Global component
+    //local component
+    var app = new Vue({
+        el:"#app",
+        data:{ message:"12345" }
+    });
+
+    </script>
+</body>
+</html>
